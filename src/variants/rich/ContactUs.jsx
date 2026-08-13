@@ -148,7 +148,7 @@ export default function ContactUs({ preselectedService }) {
                   <div>
                     <div className="text-[11px] text-[#7A7A7A] uppercase font-semibold">Co-Founders Direct</div>
                     <div className="text-xs text-[#7A7A7A]">
-                      mark@webuildweb.com &bull; yzelle@webuildweb.com
+                      markjosephaballe1@gmail.com &bull; auraofficialph@gmail.com
                     </div>
                   </div>
                 </div>

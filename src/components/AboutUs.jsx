@@ -14,7 +14,7 @@ export default function AboutUs() {
       image: '/assets/mark-aballe.jpg',
       bio: 'Fullstack Systems Architect & Senior Software Engineer. Mark leads technical strategy and engineering at WeBuildWeb, crafting ultra-fast web architectures and custom admin customization engines that power modern digital businesses.',
       skills: ['React & Next.js', 'Custom Admin Engines', 'API Architecture', 'Performance Optimization'],
-      email: 'mark@webuildweb.com',
+      email: 'markjosephaballe1@gmail.com',
     },
     {
       id: 'yzelle',
@@ -25,7 +25,7 @@ export default function AboutUs() {
       image: '/assets/yzelle-lim.jpg',
       bio: 'Product Designer & Visual Systems Specialist. Yzelle elevates client brands through high-converting UI/UX design, custom visual aesthetics, and brand identity systems that captivate audiences and maximize user engagement.',
       skills: ['UI/UX Engineering', 'Brand Strategy', 'Interactive Design', 'Conversion Systems'],
-      email: 'yzelle@webuildweb.com',
+      email: 'auraofficialph@gmail.com',
     },
   ];
 
