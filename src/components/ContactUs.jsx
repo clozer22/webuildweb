@@ -56,7 +56,7 @@ export default function ContactUs() {
           name: formData.name,
           email: formData.email,
           message: formData.message,
-          subject: `New WeBuildWeb Portfolio Message from ${formData.name}`,
+          subject: `New Inquiry from ${formData.name} - WeBuildWeb`,
           from_name: 'WeBuildWeb Website',
         }),
       });
@@ -79,12 +79,7 @@ export default function ContactUs() {
         }
       } else {
         setLoading(false);
-        // If access key is placeholder or invalid, fall back smoothly while notifying
-        if (result.message && result.message.includes('access_key')) {
-          setApiError('Please configure your Web3Forms access key in ContactUs.jsx or .env!');
-        } else {
-          setApiError(result.message || 'Failed to send message. Please try again.');
-        }
+        setApiError(result.message || 'Unable to send message right now. Please try again.');
       }
     } catch (err) {
       setLoading(false);
@@ -118,7 +113,7 @@ export default function ContactUs() {
                 <CheckCircle2 className="w-8 h-8" />
               </div>
               <div className="space-y-2">
-                <h3 className="text-2xl font-bold text-[#000000]">Message Sent via Web3Forms!</h3>
+                <h3 className="text-2xl font-bold text-[#000000]">Message Sent!</h3>
                 <p className="text-xs sm:text-sm text-[#6B6B6B] max-w-sm mx-auto">
                   Thank you for reaching out. We have received your message and will respond to your email shortly.
                 </p>
@@ -229,7 +224,7 @@ export default function ContactUs() {
                 {loading ? (
                   <div className="flex items-center gap-2">
                     <RefreshCw className="w-4 h-4 animate-spin" />
-                    <span>Submitting via Web3Forms...</span>
+                    <span>Sending Message...</span>
                   </div>
                 ) : (
                   <>
