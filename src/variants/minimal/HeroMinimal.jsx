@@ -27,14 +27,14 @@ export default function HeroMinimal({ onExploreWork }) {
             className="w-full max-w-xl sm:max-w-2xl h-auto object-contain mx-auto pointer-events-none select-none transition-transform duration-700 hover:scale-[1.01]"
           />
 
-          {/* Typography: "We Build Web" + "YOUR VISION, OUR IDEA." */}
+          {/* Typography: "We Build Web" + "YOUR VISION. OUR CODE." */}
           <div className="space-y-3 pt-2">
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-[#000000]">
               We<span className="text-[#B7E200]">Build</span>Web
             </h1>
             
             <p className="text-xs sm:text-sm md:text-base font-mono font-bold tracking-[0.35em] text-[#000000] uppercase">
-              YOUR VISION, OUR IDEA.
+              YOUR VISION. OUR CODE.
             </p>
           </div>
 
