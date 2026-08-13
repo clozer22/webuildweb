@@ -12,7 +12,7 @@ export default function Hero({ onExploreWork }) {
           amplitude={1}
           distance={0}
           enableMouseInteraction={true}
-          color="#333333"
+          color="#B8B8B8"
         />
       </div>
 

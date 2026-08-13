@@ -68,13 +68,14 @@ const fragmentShader = /* glsl */ `
       // Distance to line center
       float dist = abs(st.y - waveY);
       
-      // Ultra-crisp thin thread line
-      float lineAlpha = smoothstep(0.0018, 0.0003, dist) + exp(-dist * 120.0) * 0.3;
+      // Ultra-fine hair-thin thread lines (reduced thickness)
+      float lineAlpha = smoothstep(0.0009, 0.0001, dist) + exp(-dist * 200.0) * 0.2;
 
-      alphaSum += lineAlpha * (0.6 + 0.4 * sin(time * 1.5 + i));
+      alphaSum += lineAlpha * (0.5 + 0.3 * sin(time * 1.5 + i));
     }
 
-    float finalAlpha = clamp(alphaSum * 0.8, 0.0, 1.0);
+    // Soft, delicate transparency
+    float finalAlpha = clamp(alphaSum * 0.5, 0.0, 1.0);
     gl_FragColor = vec4(col, finalAlpha);
   }
 `;
@@ -83,7 +84,7 @@ export default function Threads({
   amplitude = 1,
   distance = 0,
   enableMouseInteraction = true,
-  color = '#111111',
+  color = '#CCCCCC',
   className = '',
 }) {
   const containerRef = useRef(null);

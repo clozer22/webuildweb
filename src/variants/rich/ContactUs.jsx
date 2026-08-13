@@ -135,8 +135,8 @@ export default function ContactUs({ preselectedService }) {
                   </div>
                   <div>
                     <div className="text-[11px] text-[#7A7A7A] uppercase font-semibold">General Inquiry</div>
-                    <a href="mailto:hello@webuildweb.com" className="font-medium hover:text-[#D4FF00] transition-colors">
-                      hello@webuildweb.com
+                    <a href="mailto:webuildwebofficial@gmail.com" className="font-medium hover:text-[#D4FF00] transition-colors">
+                      webuildwebofficial@gmail.com
                     </a>
                   </div>
                 </div>

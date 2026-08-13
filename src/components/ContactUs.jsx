@@ -198,8 +198,8 @@ export default function ContactUs() {
         {/* Minimal Direct Email */}
         <div className="mt-8 text-center text-xs text-[#6B6B6B]">
           <span>Or email us directly at </span>
-          <a href="mailto:hello@webuildweb.com" className="text-[#000000] font-bold hover:text-[#B7E200] underline">
-            hello@webuildweb.com
+          <a href="mailto:webuildwebofficial@gmail.com" className="text-[#000000] font-bold hover:text-[#B7E200] underline">
+            webuildwebofficial@gmail.com
           </a>
         </div>
 

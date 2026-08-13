@@ -1,83 +1,79 @@
 import React, { useState } from 'react';
-import {
-  Sliders,
-  ExternalLink,
-  ShoppingBag,
-  Sparkles,
-  Layers,
-  ArrowRight,
-  Filter,
-  CheckCircle2,
-  Eye
-} from 'lucide-react';
+import { ExternalLink, Sliders, Clock, Sparkles } from 'lucide-react';
 import AdminCustomizerModal from './AdminCustomizerModal';
 
 export default function Projects() {
   const [activeCategory, setActiveCategory] = useState('All');
   const [selectedProject, setSelectedProject] = useState(null);
 
-  const categories = ['All', 'E-Commerce', 'Landing Pages', 'Web Apps'];
+  const categories = ['All', 'Cosmetics', 'Cafes', 'Resort', 'Real Estate', 'Staycation', 'Restaurant'];
 
   const projectData = [
     {
-      id: 'nexus-ecommerce',
-      title: 'Nexus Luxury E-Commerce',
-      category: 'E-Commerce',
-      description: 'High-end storefront featuring dynamic product customization, inventory management, instant checkout, and real-time sales admin analytics.',
-      tags: ['React', 'E-Commerce Engine', 'Tailwind CSS', 'Admin Theme Controls'],
-      metrics: '+185% Sales Conversion',
-      image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=80',
-      demoUrl: '#',
-    },
-    {
-      id: 'hypersaas-landing',
-      title: 'HyperSaaS AI Platform',
-      category: 'Landing Pages',
-      description: 'Next-generation AI SaaS landing page built for maximum lead conversion with interactive pricing calculators and theme customizer.',
-      tags: ['Next.js', 'Framer Motion', 'Custom Admin Panel', 'Tailwind CSS'],
-      metrics: '3.2k Monthly Leads',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
-      demoUrl: '#',
-    },
-    {
-      id: 'aura-beauty',
-      title: 'Aura Skincare Store',
-      category: 'E-Commerce',
-      description: 'Minimalist skincare e-commerce platform with theme preset switcher, subscription checkout flows, and automated customer marketing.',
-      tags: ['React', 'Shopify API', 'Tailwind CSS', 'Admin Palette Controls'],
-      metrics: '4.9/5 Rating (1,400+ Sales)',
+      id: 'glow-cosmetics',
+      title: 'Aura Glow Cosmetics',
+      category: 'Cosmetics',
+      description: 'High-converting luxury cosmetics & beauty storefront featuring dynamic product showcases, shade pickers, and instant checkout.',
+      tags: ['React', 'Cosmetics Engine', 'Tailwind CSS'],
+      metrics: 'Live Demo Available',
       image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80',
-      demoUrl: '#',
+      liveUrl: 'https://cosmetics-seven-lilac.vercel.app/',
+      isLive: true,
     },
     {
-      id: 'veloce-motors',
-      title: 'Veloce Luxury Fleet',
-      category: 'Landing Pages',
-      description: 'Automotive booking and showcase landing page with customizable neon color themes, instant booking calendar, and client portal.',
-      tags: ['React', 'Custom UI Engine', 'Tailwind CSS', 'Dynamic Layouts'],
-      metrics: '99.8% Client Satisfaction',
-      image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80',
-      demoUrl: '#',
+      id: 'artisanal-cafe',
+      title: 'Artisanal Coffee & Roastery',
+      category: 'Cafes',
+      description: 'Modern specialty cafe web application with interactive drink menus, online ordering, table reservations, and customizable themes.',
+      tags: ['React', 'Cafe Ordering UI', 'Tailwind CSS'],
+      metrics: 'Live Demo Available',
+      image: 'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=80',
+      liveUrl: 'https://cafe-mu-sand.vercel.app/',
+      isLive: true,
     },
     {
-      id: 'quantum-agency',
-      title: 'Quantum Tech Portal',
-      category: 'Web Apps',
-      description: 'Enterprise agency web app featuring real-time client dashboards, project milestones tracker, and customizable white-label branding.',
-      tags: ['React', 'Node.js', 'Custom Admin Suite', 'Tailwind CSS'],
-      metrics: '&lt;0.8s Load Speed',
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
-      demoUrl: '#',
+      id: 'serenity-resort',
+      title: 'Serenity Luxury Island Resort',
+      category: 'Resort',
+      description: 'Exclusive beachfront resort booking platform with interactive room customization, virtual tours, and guest concierge portal.',
+      tags: ['React', 'Resort Booking Engine', 'Tailwind CSS'],
+      metrics: 'In Production',
+      image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80',
+      liveUrl: null,
+      isLive: false,
     },
     {
-      id: 'zenith-[#0A0A0A]',
-      title: 'Zenith Real Estate Portal',
-      category: 'Landing Pages',
-      description: 'Luxury real estate showcase with 3D virtual tour integrations, lead capture modals, and multi-theme admin switcher.',
-      tags: ['React', 'Interactive Maps', 'Tailwind CSS', 'Admin Theme Controls'],
-      metrics: '+$4.2M Property Leads',
-      image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80',
-      demoUrl: '#',
+      id: 'haven-real-estate',
+      title: 'Haven Prime Real Estate',
+      category: 'Real Estate',
+      description: 'Premium architectural & property listing portal with dynamic filter search, high-res gallery showcases, and agent scheduling.',
+      tags: ['Next.js', 'Property Portal', 'Tailwind CSS'],
+      metrics: 'In Production',
+      image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80',
+      liveUrl: null,
+      isLive: false,
+    },
+    {
+      id: 'urban-staycation',
+      title: 'Urban Condotel & Staycation',
+      category: 'Staycation',
+      description: 'Boutique staycation & condotel rental platform featuring real-time room availability, instant booking system, and admin pricing tools.',
+      tags: ['React', 'Condotel Engine', 'Tailwind CSS'],
+      metrics: 'In Production',
+      image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80',
+      liveUrl: null,
+      isLive: false,
+    },
+    {
+      id: 'bistro-culinaire',
+      title: 'Le Bistro Fine Dining Restaurant',
+      category: 'Restaurant',
+      description: 'Upscale restaurant experience with digital chef menus, online table reservation engine, and customizable seasonal promo banners.',
+      tags: ['React', 'Restaurant Tech', 'Tailwind CSS'],
+      metrics: 'In Production',
+      image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80',
+      liveUrl: null,
+      isLive: false,
     },
   ];
 
@@ -86,44 +82,37 @@ export default function Projects() {
     : projectData.filter(p => p.category === activeCategory);
 
   return (
-    <section id="projects" className="py-24 bg-[#0A0A0A] relative overflow-hidden">
-      {/* Background Lighting */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-[#D4FF00]/5 rounded-full blur-[160px] pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="projects" className="py-24 bg-white text-[#000000] relative border-t border-[#E5E5E5]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Title Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1E1E1E] border border-[#2A2A2A] text-xs font-semibold uppercase tracking-wider text-[#D4FF00]">
-            <Layers className="w-4 h-4" />
-            <span>Featured Portfolio & Case Studies</span>
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-[#E5E5E5]">
+          <div>
+            <div className="text-xs font-mono text-[#000000] font-bold tracking-widest uppercase mb-2 flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#B7E200]" />
+              <span>+ SELECTED WORK &amp; NICHES</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#000000] tracking-tight">
+              Featured Projects
+            </h2>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
-            Crafted for Impact. <br />
-            <span className="text-[#D4FF00]">Customizable by Design.</span>
-          </h2>
-
-          <p className="text-base sm:text-lg text-[#7A7A7A] leading-relaxed">
-            Explore our featured e-commerce platforms and high-converting landing pages. Every website we build includes customizable admin controls for themes, colors, and layout management.
-          </p>
-        </div>
-
-        {/* Filter Tab Categories */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={`px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
-                activeCategory === cat
-                  ? 'bg-[#D4FF00] text-[#0A0A0A] shadow-lg shadow-[#D4FF00]/20'
-                  : 'bg-[#1E1E1E] text-gray-300 border border-[#2A2A2A] hover:border-[#D4FF00]/50 hover:text-white'
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
+          {/* Category Filter Tabs */}
+          <div className="flex flex-wrap items-center gap-2 mt-4 md:mt-0">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                className={`px-4 py-2 rounded-none text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
+                  activeCategory === cat
+                    ? 'bg-[#B7E200] text-[#000000]'
+                    : 'bg-[#F2F2F2] text-[#6B6B6B] border border-[#E5E5E5] hover:text-[#000000]'
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Projects Grid */}
@@ -131,76 +120,77 @@ export default function Projects() {
           {filteredProjects.map((project) => (
             <div
               key={project.id}
-              className="group rounded-3xl bg-[#1E1E1E] border border-[#2A2A2A] overflow-hidden hover:border-[#D4FF00]/60 transition-all duration-500 hover:shadow-2xl hover:shadow-[#D4FF00]/10 flex flex-col justify-between"
+              className="group space-y-4 rounded-none bg-[#F2F2F2] border border-[#E5E5E5] p-6 hover:border-[#B7E200] transition-all duration-300 flex flex-col justify-between shadow-sm"
             >
-              {/* Project Card Image & Badges */}
-              <div className="relative h-60 overflow-hidden bg-[#141414]">
+              <div className="relative h-56 rounded-none overflow-hidden bg-white">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1E1E1E] via-transparent to-transparent opacity-80" />
                 
                 {/* Category Badge */}
-                <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1 rounded-full bg-[#0A0A0A]/90 backdrop-blur-md border border-[#2A2A2A] text-xs font-bold text-[#D4FF00]">
+                <div className="absolute top-3 left-3 flex items-center gap-2">
+                  <span className="px-3 py-1 rounded-none bg-white text-[11px] font-bold text-[#000000] border border-[#E5E5E5]">
                     {project.category}
                   </span>
-                </div>
-
-                {/* Metrics Highlight */}
-                <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between">
-                  <span className="px-3 py-1 rounded-lg bg-[#0A0A0A]/90 backdrop-blur-md text-[11px] font-extrabold text-[#D4FF00] border border-[#D4FF00]/30">
-                    {project.metrics}
-                  </span>
+                  {project.isLive && (
+                    <span className="px-2.5 py-1 rounded-none bg-[#B7E200] text-[10px] font-extrabold text-[#000000] uppercase tracking-wider flex items-center gap-1">
+                      <Sparkles className="w-3 h-3" />
+                      <span>Live Demo</span>
+                    </span>
+                  )}
                 </div>
               </div>
 
-              {/* Project Card Info */}
-              <div className="p-6 flex-1 flex flex-col justify-between space-y-6">
-                <div>
-                  <h3 className="text-xl font-bold text-white group-hover:text-[#D4FF00] transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="text-xs text-[#7A7A7A] mt-2.5 leading-relaxed line-clamp-3">
-                    {project.description}
-                  </p>
-                </div>
+              <div className="space-y-2.5 pt-2">
+                <h3 className="text-xl font-bold text-[#000000] group-hover:text-[#111111] transition-colors">
+                  {project.title}
+                </h3>
+                <p className="text-xs text-[#6B6B6B] leading-relaxed line-clamp-3">
+                  {project.description}
+                </p>
+              </div>
 
-                {/* Tech Stack Pills */}
-                <div className="space-y-4">
-                  <div className="flex flex-wrap gap-1.5">
-                    {project.tags.map((tag, tIdx) => (
-                      <span
-                        key={tIdx}
-                        className="px-2.5 py-1 rounded-md bg-[#0A0A0A] border border-[#2A2A2A] text-[10px] font-semibold text-gray-400"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
+              {/* Card Action Buttons */}
+              <div className="pt-4 border-t border-[#E5E5E5] space-y-2">
+                {project.isLive ? (
+                  <div className="grid grid-cols-2 gap-2">
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="py-2.5 px-3 rounded-none bg-[#000000] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#B7E200] hover:text-[#000000] transition-all flex items-center justify-center gap-1.5 shadow-sm"
+                    >
+                      <span>Live Link</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
 
-                  {/* Interactive Admin Customizer CTA */}
-                  <div className="pt-4 border-t border-[#2A2A2A] flex items-center gap-2">
                     <button
                       onClick={() => setSelectedProject(project)}
-                      className="flex-1 py-3 px-4 rounded-xl bg-[#D4FF00] text-[#0A0A0A] font-bold text-xs uppercase tracking-wider hover:bg-[#b8de00] transition-all flex items-center justify-center gap-2 shadow-md hover:scale-[1.02] cursor-pointer"
+                      className="py-2.5 px-3 rounded-none bg-[#B7E200] text-[#000000] text-xs font-bold uppercase tracking-wider hover:bg-[#a2c900] transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-sm"
                     >
-                      <Sliders className="w-4 h-4" />
-                      <span>Admin Theme Studio</span>
+                      <Sliders className="w-3.5 h-3.5" />
+                      <span>Admin Studio</span>
                     </button>
                   </div>
-                </div>
-
+                ) : (
+                  <button
+                    disabled
+                    className="w-full py-3 rounded-none bg-[#E5E5E5] text-[#6B6B6B] text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2 cursor-not-allowed opacity-80"
+                  >
+                    <Clock className="w-4 h-4 text-[#6B6B6B]" />
+                    <span>Under Development</span>
+                  </button>
+                )}
               </div>
+
             </div>
           ))}
         </div>
 
       </div>
 
-      {/* Admin Customizer Modal */}
       {selectedProject && (
         <AdminCustomizerModal
           project={selectedProject}
