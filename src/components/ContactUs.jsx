@@ -10,6 +10,7 @@ export default function ContactUs() {
     name: '',
     email: '',
     message: '',
+    botcheck: '',
   });
 
   const [submitted, setSubmitted] = useState(false);
@@ -45,20 +46,19 @@ export default function ContactUs() {
     setApiError('');
 
     try {
+      // Official Web3Forms FormData payload
+      const formPayload = new FormData();
+      formPayload.append('access_key', WEB3FORMS_ACCESS_KEY);
+      formPayload.append('name', formData.name);
+      formPayload.append('email', formData.email);
+      formPayload.append('message', formData.message);
+      formPayload.append('subject', `New Inquiry from ${formData.name} - WeBuildWeb`);
+      formPayload.append('from_name', 'WeBuildWeb Website');
+      formPayload.append('botcheck', formData.botcheck);
+
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-        body: JSON.stringify({
-          access_key: WEB3FORMS_ACCESS_KEY,
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-          subject: `New Inquiry from ${formData.name} - WeBuildWeb`,
-          from_name: 'WeBuildWeb Website',
-        }),
+        body: formPayload,
       });
 
       const result = await response.json();
@@ -121,7 +121,7 @@ export default function ContactUs() {
               <button
                 onClick={() => {
                   setSubmitted(false);
-                  setFormData({ name: '', email: '', message: '' });
+                  setFormData({ name: '', email: '', message: '', botcheck: '' });
                 }}
                 className="px-6 py-2.5 rounded-none bg-[#B7E200] text-[#000000] text-xs font-extrabold uppercase tracking-wider hover:bg-[#a2c900] transition-all cursor-pointer"
               >
@@ -131,6 +131,16 @@ export default function ContactUs() {
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
               
+              {/* Anti-spam Honeypot (Hidden) */}
+              <input
+                type="checkbox"
+                name="botcheck"
+                className="hidden"
+                style={{ display: 'none' }}
+                checked={formData.botcheck}
+                onChange={(e) => setFormData((prev) => ({ ...prev, botcheck: e.target.checked }))}
+              />
+
               {/* API Error Notification */}
               {apiError && (
                 <div className="p-4 rounded-none bg-red-50 border border-red-200 text-red-700 text-xs font-medium flex items-center gap-2">
