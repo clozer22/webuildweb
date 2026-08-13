@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
-import { Send, CheckCircle2, AlertCircle } from 'lucide-react';
+import { Send, CheckCircle2, AlertCircle, RefreshCw } from 'lucide-react';
 import confetti from 'canvas-confetti';
+
+// Configure Web3Forms API Access Key
+const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_KEY || '38a50cad-537e-4896-8c2e-2408ef1d47da';
 
 export default function ContactUs() {
   const [formData, setFormData] = useState({
@@ -12,6 +15,7 @@ export default function ContactUs() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
+  const [apiError, setApiError] = useState('');
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -19,9 +23,10 @@ export default function ContactUs() {
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: '' }));
     }
+    if (apiError) setApiError('');
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const newErrors = {};
 
@@ -37,22 +42,54 @@ export default function ContactUs() {
     }
 
     setLoading(true);
+    setApiError('');
 
-    setTimeout(() => {
-      setLoading(false);
-      setSubmitted(true);
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          subject: `New WeBuildWeb Portfolio Message from ${formData.name}`,
+          from_name: 'WeBuildWeb Website',
+        }),
+      });
 
-      try {
-        confetti({
-          particleCount: 100,
-          spread: 70,
-          origin: { y: 0.6 },
-          colors: ['#B7E200', '#000000', '#F2F2F2'],
-        });
-      } catch (err) {
-        console.log('Confetti triggered');
+      const result = await response.json();
+
+      if (result.success) {
+        setLoading(false);
+        setSubmitted(true);
+
+        try {
+          confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { y: 0.6 },
+            colors: ['#B7E200', '#000000', '#F2F2F2'],
+          });
+        } catch (err) {
+          console.log('Confetti triggered');
+        }
+      } else {
+        setLoading(false);
+        // If access key is placeholder or invalid, fall back smoothly while notifying
+        if (result.message && result.message.includes('access_key')) {
+          setApiError('Please configure your Web3Forms access key in ContactUs.jsx or .env!');
+        } else {
+          setApiError(result.message || 'Failed to send message. Please try again.');
+        }
       }
-    }, 1000);
+    } catch (err) {
+      setLoading(false);
+      setApiError('Network error. Please check your internet connection.');
+    }
   };
 
   return (
@@ -81,9 +118,9 @@ export default function ContactUs() {
                 <CheckCircle2 className="w-8 h-8" />
               </div>
               <div className="space-y-2">
-                <h3 className="text-2xl font-bold text-[#000000]">Message Sent!</h3>
+                <h3 className="text-2xl font-bold text-[#000000]">Message Sent via Web3Forms!</h3>
                 <p className="text-xs sm:text-sm text-[#6B6B6B] max-w-sm mx-auto">
-                  Thank you for reaching out. We have received your message and will respond shortly.
+                  Thank you for reaching out. We have received your message and will respond to your email shortly.
                 </p>
               </div>
               <button
@@ -99,6 +136,14 @@ export default function ContactUs() {
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
               
+              {/* API Error Notification */}
+              {apiError && (
+                <div className="p-4 rounded-none bg-red-50 border border-red-200 text-red-700 text-xs font-medium flex items-center gap-2">
+                  <AlertCircle className="w-4 h-4 shrink-0 text-red-600" />
+                  <span>{apiError}</span>
+                </div>
+              )}
+
               {/* Full Name & Email Row */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
@@ -182,7 +227,10 @@ export default function ContactUs() {
                 className="w-full py-4 rounded-none bg-[#B7E200] text-[#000000] font-extrabold text-xs uppercase tracking-widest hover:bg-[#a2c900] transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer hover:scale-[1.01]"
               >
                 {loading ? (
-                  <span>Sending Message...</span>
+                  <div className="flex items-center gap-2">
+                    <RefreshCw className="w-4 h-4 animate-spin" />
+                    <span>Submitting via Web3Forms...</span>
+                  </div>
                 ) : (
                   <>
                     <span>Send Message</span>
