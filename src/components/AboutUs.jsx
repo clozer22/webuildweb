@@ -10,10 +10,12 @@ export default function AboutUs() {
       number: '01',
       name: 'Mark Diez Aballe',
       role: 'Co-Founder & Chief Technology Officer',
-      shortRole: 'FULLSTACK & SYSTEMS ARCHITECT',
+      shortRole: 'FULL-STACK SYSTEMS ARCHITECT & SENIOR SOFTWARE ENGINEER',
       image: '/assets/mark-aballe.jpg',
-      bio: 'Fullstack Systems Architect & Senior Software Engineer. Mark leads technical strategy and engineering at WeBuildWeb, crafting ultra-fast web architectures and custom admin customization engines that power modern digital businesses.',
-      skills: ['React & Next.js', 'Custom Admin Engines', 'API Architecture', 'Performance Optimization'],
+      bio: `Mark leads the technology and engineering strategy at WeBuildWeb, transforming complex business requirements into high-performance, scalable, and reliable digital solutions. With deep expertise in full-stack development and systems architecture, he oversees the design and development of the technologies that power our clients’ digital businesses.
+
+From ultra-fast web architectures to custom administrative systems and business automation, Mark ensures every solution we build is engineered for performance, security, scalability, and long-term growth.`,
+      skills: ['Full-Stack Systems', 'API & Database Architecture', 'Custom Admin Engines', 'Performance & Security'],
       email: 'markjosephaballe1@gmail.com',
     },
     {
@@ -21,10 +23,14 @@ export default function AboutUs() {
       number: '02',
       name: 'Yzelle Lim',
       role: 'Co-Founder & Chief Creative Officer',
-      shortRole: 'BRAND & UI/UX DESIGNER',
+      shortRole: 'PRODUCT DESIGNER & VISUAL SYSTEMS SPECIALIST',
       image: '/assets/yzelle-lim.jpg',
-      bio: 'Product Designer & Visual Systems Specialist. Yzelle elevates client brands through high-converting UI/UX design, custom visual aesthetics, and brand identity systems that captivate audiences and maximize user engagement.',
-      skills: ['UI/UX Engineering', 'Brand Strategy', 'Interactive Design', 'Conversion Systems'],
+      bio: `Yzelle leads the creative and design direction at WeBuildWeb, combining strategic design, user experience, and brand storytelling to create digital experiences that are both visually compelling and built to perform.
+
+She specializes in UI/UX design, custom visual systems, and brand identity, crafting cohesive digital experiences that strengthen brand credibility, engage audiences, and turn visitors into customers.
+
+Through a balance of creativity and strategy, Yzelle ensures every WeBuildWeb project looks distinctive, feels intuitive, and communicates the value of our clients’ businesses with clarity and impact.`,
+      skills: ['UI/UX Engineering', 'Brand Storytelling', 'Visual Systems', 'Conversion Design'],
       email: 'auraofficialph@gmail.com',
     },
   ];
@@ -59,7 +65,7 @@ export default function AboutUs() {
                 {/* Minimal Top Header Tag */}
                 <div className="flex items-start justify-between pt-2 border-t border-[#E5E5E5] group-hover:border-[#B7E200] transition-colors">
                   <div>
-                    <div className="text-[10px] font-mono text-[#111111] font-bold">[{founder.number}] &bull; {founder.shortRole}</div>
+                    <div className="text-[10px] font-mono text-[#111111] font-bold uppercase tracking-wider">[{founder.number}] &bull; {founder.shortRole}</div>
                     <h3 className="text-2xl sm:text-3xl font-extrabold text-[#000000] tracking-tight mt-1 group-hover:text-[#111111] transition-colors">
                       {founder.name}
                     </h3>
@@ -67,7 +73,7 @@ export default function AboutUs() {
 
                   <a
                     href={`mailto:${founder.email}`}
-                    className="p-2.5 rounded-none bg-white border border-[#E5E5E5] text-[#000000] hover:bg-[#B7E200] transition-all shadow-sm"
+                    className="p-2.5 rounded-none bg-white border border-[#E5E5E5] text-[#000000] hover:bg-[#B7E200] transition-all shadow-sm shrink-0 ml-3"
                     aria-label={`Email ${founder.name}`}
                   >
                     <Mail className="w-4 h-4" />
@@ -98,9 +104,9 @@ export default function AboutUs() {
                 {/* Expandable Bio Drawer */}
                 {isExpanded && (
                   <div className="p-6 rounded-none bg-white border border-[#E5E5E5] text-xs sm:text-sm text-[#6B6B6B] leading-relaxed space-y-4 shadow-sm animate-fadeIn">
-                    <p>{founder.bio}</p>
+                    <div className="whitespace-pre-line space-y-3">{founder.bio}</div>
                     
-                    <div>
+                    <div className="pt-2">
                       <div className="text-[11px] font-bold text-[#000000] uppercase tracking-wider mb-2">Core Focus</div>
                       <div className="flex flex-wrap gap-2">
                         {founder.skills.map((skill, sIdx) => (

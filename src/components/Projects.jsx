@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { ExternalLink, Sliders, Clock, Sparkles } from 'lucide-react';
+import { Sliders, Images, Eye } from 'lucide-react';
 import AdminCustomizerModal from './AdminCustomizerModal';
+import ProjectAlbumModal from './ProjectAlbumModal';
 
 export default function Projects() {
   const [activeCategory, setActiveCategory] = useState('All');
   const [selectedProject, setSelectedProject] = useState(null);
+  const [albumProject, setAlbumProject] = useState(null);
 
   const categories = ['All', 'Cosmetics', 'Cafes', 'Resort', 'Real Estate', 'Staycation', 'Restaurant'];
 
@@ -13,23 +15,31 @@ export default function Projects() {
       id: 'glow-cosmetics',
       title: 'Aura Glow Cosmetics',
       category: 'Cosmetics',
-      description: 'High-converting luxury cosmetics & beauty storefront featuring dynamic product showcases, shade pickers, and instant checkout.',
+      description: 'High-converting luxury cosmetics & beauty storefront featuring dynamic product showcases, custom shade pickers, and instant checkout.',
       tags: ['React', 'Cosmetics Engine', 'Tailwind CSS'],
-      metrics: 'Live Demo Available',
+      metrics: '4 Preview Screenshots',
       image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80',
-      liveUrl: 'https://cosmetics-seven-lilac.vercel.app/',
-      isLive: true,
+      gallery: [
+        'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=1200&q=80',
+      ],
     },
     {
       id: 'artisanal-cafe',
       title: 'Artisanal Coffee & Roastery',
       category: 'Cafes',
-      description: 'Modern specialty cafe web application with interactive drink menus, online ordering, table reservations, and customizable themes.',
+      description: 'Modern specialty cafe web application with interactive drink menus, online ordering, table reservations, and customizable aesthetic themes.',
       tags: ['React', 'Cafe Ordering UI', 'Tailwind CSS'],
-      metrics: 'Live Demo Available',
+      metrics: '4 Preview Screenshots',
       image: 'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=80',
-      liveUrl: 'https://cafe-mu-sand.vercel.app/',
-      isLive: true,
+      gallery: [
+        'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=1200&q=80',
+      ],
     },
     {
       id: 'serenity-resort',
@@ -37,10 +47,14 @@ export default function Projects() {
       category: 'Resort',
       description: 'Exclusive beachfront resort booking platform with interactive room customization, virtual tours, and guest concierge portal.',
       tags: ['React', 'Resort Booking Engine', 'Tailwind CSS'],
-      metrics: 'In Production',
+      metrics: '4 Preview Screenshots',
       image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80',
-      liveUrl: null,
-      isLive: false,
+      gallery: [
+        'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80',
+      ],
     },
     {
       id: 'haven-real-estate',
@@ -48,10 +62,14 @@ export default function Projects() {
       category: 'Real Estate',
       description: 'Premium architectural & property listing portal with dynamic filter search, high-res gallery showcases, and agent scheduling.',
       tags: ['Next.js', 'Property Portal', 'Tailwind CSS'],
-      metrics: 'In Production',
+      metrics: '4 Preview Screenshots',
       image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80',
-      liveUrl: null,
-      isLive: false,
+      gallery: [
+        'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1200&q=80',
+      ],
     },
     {
       id: 'urban-staycation',
@@ -59,10 +77,14 @@ export default function Projects() {
       category: 'Staycation',
       description: 'Boutique staycation & condotel rental platform featuring real-time room availability, instant booking system, and admin pricing tools.',
       tags: ['React', 'Condotel Engine', 'Tailwind CSS'],
-      metrics: 'In Production',
+      metrics: '4 Preview Screenshots',
       image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80',
-      liveUrl: null,
-      isLive: false,
+      gallery: [
+        'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1200&q=80',
+      ],
     },
     {
       id: 'bistro-culinaire',
@@ -70,10 +92,14 @@ export default function Projects() {
       category: 'Restaurant',
       description: 'Upscale restaurant experience with digital chef menus, online table reservation engine, and customizable seasonal promo banners.',
       tags: ['React', 'Restaurant Tech', 'Tailwind CSS'],
-      metrics: 'In Production',
+      metrics: '4 Preview Screenshots',
       image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80',
-      liveUrl: null,
-      isLive: false,
+      gallery: [
+        'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80',
+      ],
     },
   ];
 
@@ -122,24 +148,30 @@ export default function Projects() {
               key={project.id}
               className="group space-y-4 rounded-none bg-[#F2F2F2] border border-[#E5E5E5] p-6 hover:border-[#B7E200] transition-all duration-300 flex flex-col justify-between shadow-sm"
             >
-              <div className="relative h-56 rounded-none overflow-hidden bg-white">
+              {/* Image Preview Container (Clickable for Album) */}
+              <div
+                onClick={() => setAlbumProject(project)}
+                className="relative h-56 rounded-none overflow-hidden bg-white cursor-pointer group/img"
+              >
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-105"
                 />
                 
-                {/* Category Badge */}
+                {/* Category Badge & Gallery Pill */}
                 <div className="absolute top-3 left-3 flex items-center gap-2">
                   <span className="px-3 py-1 rounded-none bg-white text-[11px] font-bold text-[#000000] border border-[#E5E5E5]">
                     {project.category}
                   </span>
-                  {project.isLive && (
-                    <span className="px-2.5 py-1 rounded-none bg-[#B7E200] text-[10px] font-extrabold text-[#000000] uppercase tracking-wider flex items-center gap-1">
-                      <Sparkles className="w-3 h-3" />
-                      <span>Live Demo</span>
-                    </span>
-                  )}
+                </div>
+
+                {/* Hover Overlay Hint */}
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
+                  <span className="px-4 py-2 bg-white text-[#000000] text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-lg">
+                    <Images className="w-4 h-4 text-[#B7E200]" />
+                    <span>View Album ({project.gallery.length})</span>
+                  </span>
                 </div>
               </div>
 
@@ -152,37 +184,23 @@ export default function Projects() {
                 </p>
               </div>
 
-              {/* Card Action Buttons */}
-              <div className="pt-4 border-t border-[#E5E5E5] space-y-2">
-                {project.isLive ? (
-                  <div className="grid grid-cols-2 gap-2">
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="py-2.5 px-3 rounded-none bg-[#000000] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#B7E200] hover:text-[#000000] transition-all flex items-center justify-center gap-1.5 shadow-sm"
-                    >
-                      <span>Live Link</span>
-                      <ExternalLink className="w-3.5 h-3.5" />
-                    </a>
+              {/* Action Buttons: View Album & Admin Studio */}
+              <div className="pt-4 border-t border-[#E5E5E5] grid grid-cols-2 gap-2">
+                <button
+                  onClick={() => setAlbumProject(project)}
+                  className="py-2.5 px-3 rounded-none bg-[#000000] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#B7E200] hover:text-[#000000] transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-sm"
+                >
+                  <Eye className="w-3.5 h-3.5" />
+                  <span>View Album</span>
+                </button>
 
-                    <button
-                      onClick={() => setSelectedProject(project)}
-                      className="py-2.5 px-3 rounded-none bg-[#B7E200] text-[#000000] text-xs font-bold uppercase tracking-wider hover:bg-[#a2c900] transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-sm"
-                    >
-                      <Sliders className="w-3.5 h-3.5" />
-                      <span>Admin Studio</span>
-                    </button>
-                  </div>
-                ) : (
-                  <button
-                    disabled
-                    className="w-full py-3 rounded-none bg-[#E5E5E5] text-[#6B6B6B] text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2 cursor-not-allowed opacity-80"
-                  >
-                    <Clock className="w-4 h-4 text-[#6B6B6B]" />
-                    <span>Under Development</span>
-                  </button>
-                )}
+                <button
+                  onClick={() => setSelectedProject(project)}
+                  className="py-2.5 px-3 rounded-none bg-[#B7E200] text-[#000000] text-xs font-bold uppercase tracking-wider hover:bg-[#a2c900] transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-sm"
+                >
+                  <Sliders className="w-3.5 h-3.5" />
+                  <span>Admin Studio</span>
+                </button>
               </div>
 
             </div>
@@ -191,6 +209,16 @@ export default function Projects() {
 
       </div>
 
+      {/* Album Lightbox Modal */}
+      {albumProject && (
+        <ProjectAlbumModal
+          project={albumProject}
+          onClose={() => setAlbumProject(null)}
+          onOpenAdminStudio={(p) => setSelectedProject(p)}
+        />
+      )}
+
+      {/* Admin Theme Customizer Modal */}
       {selectedProject && (
         <AdminCustomizerModal
           project={selectedProject}
