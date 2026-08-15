@@ -1,12 +1,7 @@
 import React, { useState } from 'react';
-import { Sliders, Images, Eye } from 'lucide-react';
-import AdminCustomizerModal from './AdminCustomizerModal';
-import ProjectAlbumModal from './ProjectAlbumModal';
 
 export default function Projects() {
   const [activeCategory, setActiveCategory] = useState('All');
-  const [selectedProject, setSelectedProject] = useState(null);
-  const [albumProject, setAlbumProject] = useState(null);
 
   const categories = ['All', 'Cosmetics', 'Cafes', 'Resort', 'Real Estate', 'Staycation', 'Restaurant'];
 
@@ -17,14 +12,7 @@ export default function Projects() {
       category: 'Cosmetics',
       description: 'High-converting luxury cosmetics & beauty storefront featuring dynamic product showcases, custom shade pickers, and instant checkout.',
       tags: ['React', 'Cosmetics Engine', 'Tailwind CSS'],
-      metrics: '4 Web UI Screenshots',
       image: '/assets/projects/cosmetics-landing.jpg',
-      gallery: [
-        '/assets/projects/cosmetics-landing.jpg',
-        'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=80',
-        'https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=1200&q=80',
-        'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=1200&q=80',
-      ],
     },
     {
       id: 'artisanal-cafe',
@@ -32,14 +20,7 @@ export default function Projects() {
       category: 'Cafes',
       description: 'Modern specialty cafe web application with interactive drink menus, online ordering, table reservations, and customizable aesthetic themes.',
       tags: ['React', 'Cafe Ordering UI', 'Tailwind CSS'],
-      metrics: '4 Web UI Screenshots',
       image: '/assets/projects/cafe-landing.jpg',
-      gallery: [
-        '/assets/projects/cafe-landing.jpg',
-        'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1200&q=80',
-        'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
-        'https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&w=1200&q=80',
-      ],
     },
     {
       id: 'serenity-resort',
@@ -47,14 +28,7 @@ export default function Projects() {
       category: 'Resort',
       description: 'Exclusive beachfront resort booking platform with interactive room customization, virtual tours, and guest concierge portal.',
       tags: ['React', 'Resort Booking Engine', 'Tailwind CSS'],
-      metrics: '4 Web UI Screenshots',
       image: '/assets/projects/resort-landing.jpg',
-      gallery: [
-        '/assets/projects/resort-landing.jpg',
-        'https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=1200&q=80',
-        'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80',
-        'https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1200&q=80',
-      ],
     },
     {
       id: 'haven-real-estate',
@@ -62,14 +36,7 @@ export default function Projects() {
       category: 'Real Estate',
       description: 'Premium architectural & property listing portal with dynamic filter search, high-res gallery showcases, and agent scheduling.',
       tags: ['Next.js', 'Property Portal', 'Tailwind CSS'],
-      metrics: '4 Web UI Screenshots',
       image: '/assets/projects/real-estate-landing.jpg',
-      gallery: [
-        '/assets/projects/real-estate-landing.jpg',
-        'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
-        'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80',
-        'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
-      ],
     },
     {
       id: 'urban-staycation',
@@ -77,14 +44,7 @@ export default function Projects() {
       category: 'Staycation',
       description: 'Boutique staycation & condotel rental platform featuring real-time room availability, instant booking system, and admin pricing tools.',
       tags: ['React', 'Condotel Engine', 'Tailwind CSS'],
-      metrics: '4 Web UI Screenshots',
       image: '/assets/projects/staycation-landing.jpg',
-      gallery: [
-        '/assets/projects/staycation-landing.jpg',
-        'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80',
-        'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80',
-        'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=80',
-      ],
     },
     {
       id: 'bistro-culinaire',
@@ -92,14 +52,7 @@ export default function Projects() {
       category: 'Restaurant',
       description: 'Upscale restaurant experience with digital chef menus, online table reservation engine, and customizable seasonal promo banners.',
       tags: ['React', 'Restaurant Tech', 'Tailwind CSS'],
-      metrics: '4 Web UI Screenshots',
       image: '/assets/projects/restaurant-landing.jpg',
-      gallery: [
-        '/assets/projects/restaurant-landing.jpg',
-        'https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&w=1200&q=80',
-        'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80',
-        'https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1200&q=80',
-      ],
     },
   ];
 
@@ -144,29 +97,18 @@ export default function Projects() {
               key={project.id}
               className="group space-y-4 rounded-none bg-[#F2F2F2] border border-[#E5E5E5] p-6 hover:border-[#B7E200] transition-all duration-300 flex flex-col justify-between shadow-sm"
             >
-              {/* Image Preview Container (Clickable for Album) */}
-              <div
-                onClick={() => setAlbumProject(project)}
-                className="relative h-56 rounded-none overflow-hidden bg-white cursor-pointer group/img"
-              >
+              {/* Image Card Container */}
+              <div className="relative h-60 rounded-none overflow-hidden bg-white">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 
-                {/* Category Badge & Gallery Pill */}
+                {/* Category Badge */}
                 <div className="absolute top-3 left-3 flex items-center gap-2">
-                  <span className="px-3 py-1 rounded-none bg-white text-[11px] font-bold text-[#000000] border border-[#E5E5E5]">
+                  <span className="px-3 py-1 rounded-none bg-white/95 text-[11px] font-bold text-[#000000] border border-[#E5E5E5] backdrop-blur-sm shadow-sm">
                     {project.category}
-                  </span>
-                </div>
-
-                {/* Hover Overlay Hint */}
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
-                  <span className="px-4 py-2 bg-white text-[#000000] text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-lg">
-                    <Images className="w-4 h-4 text-[#B7E200]" />
-                    <span>View Album ({project.gallery.length})</span>
                   </span>
                 </div>
               </div>
@@ -180,23 +122,16 @@ export default function Projects() {
                 </p>
               </div>
 
-              {/* Action Buttons: View Album & Admin Studio */}
-              <div className="pt-4 border-t border-[#E5E5E5] grid grid-cols-2 gap-2">
-                <button
-                  onClick={() => setAlbumProject(project)}
-                  className="py-2.5 px-3 rounded-none bg-[#000000] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#B7E200] hover:text-[#000000] transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-sm"
-                >
-                  <Eye className="w-3.5 h-3.5" />
-                  <span>View Album</span>
-                </button>
-
-                <button
-                  onClick={() => setSelectedProject(project)}
-                  className="py-2.5 px-3 rounded-none bg-[#B7E200] text-[#000000] text-xs font-bold uppercase tracking-wider hover:bg-[#a2c900] transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-sm"
-                >
-                  <Sliders className="w-3.5 h-3.5" />
-                  <span>Admin Studio</span>
-                </button>
+              {/* Tags */}
+              <div className="pt-4 border-t border-[#E5E5E5] flex flex-wrap gap-2">
+                {project.tags.map((tag, tIdx) => (
+                  <span
+                    key={tIdx}
+                    className="px-2.5 py-1 bg-white border border-[#E5E5E5] text-[10px] font-semibold text-[#111111]"
+                  >
+                    {tag}
+                  </span>
+                ))}
               </div>
 
             </div>
@@ -204,23 +139,6 @@ export default function Projects() {
         </div>
 
       </div>
-
-      {/* Album Lightbox Modal */}
-      {albumProject && (
-        <ProjectAlbumModal
-          project={albumProject}
-          onClose={() => setAlbumProject(null)}
-          onOpenAdminStudio={(p) => setSelectedProject(p)}
-        />
-      )}
-
-      {/* Admin Theme Customizer Modal */}
-      {selectedProject && (
-        <AdminCustomizerModal
-          project={selectedProject}
-          onClose={() => setSelectedProject(null)}
-        />
-      )}
     </section>
   );
 }
