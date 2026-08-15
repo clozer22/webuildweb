@@ -42,10 +42,6 @@ Through a balance of creativity and strategy, Yzelle ensures every WeBuildWeb pr
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-[#E5E5E5]">
           <div>
-            <div className="text-xs font-mono text-[#000000] font-bold tracking-widest uppercase mb-2 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#B7E200]" />
-              <span>+ OUR LEADERSHIP</span>
-            </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#000000] tracking-tight">
               Founders &amp; Business Partners
             </h2>
@@ -65,7 +61,7 @@ Through a balance of creativity and strategy, Yzelle ensures every WeBuildWeb pr
                 {/* Minimal Top Header Tag */}
                 <div className="flex items-start justify-between pt-2 border-t border-[#E5E5E5] group-hover:border-[#B7E200] transition-colors">
                   <div>
-                    <div className="text-[10px] font-mono text-[#111111] font-bold uppercase tracking-wider">[{founder.number}] &bull; {founder.shortRole}</div>
+                    <div className="text-[10px] font-mono text-[#111111] font-bold uppercase tracking-wider">{founder.shortRole}</div>
                     <h3 className="text-2xl sm:text-3xl font-extrabold text-[#000000] tracking-tight mt-1 group-hover:text-[#111111] transition-colors">
                       {founder.name}
                     </h3>

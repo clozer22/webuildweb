@@ -32,10 +32,6 @@ export default function ServicesMinimal({ onSelectService }) {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-[#E5E5E5]">
           <div>
-            <div className="text-xs font-mono text-[#000000] font-bold tracking-widest uppercase mb-2 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#B7E200]" />
-              <span>+ CAPABILITIES</span>
-            </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#000000] tracking-tight">
               What We Build
             </h2>
@@ -49,8 +45,7 @@ export default function ServicesMinimal({ onSelectService }) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
           {services.map((s) => (
             <div key={s.num} className="group pt-6 border-t border-[#E5E5E5] hover:border-[#B7E200] transition-colors space-y-3">
-              <div className="flex items-center justify-between text-xs font-mono">
-                <span className="text-[#000000] font-bold">[{s.num}]</span>
+              <div className="flex items-center justify-end text-xs font-mono">
                 <button
                   onClick={() => onSelectService(s.title)}
                   className="text-[#6B6B6B] hover:text-[#000000] transition-colors flex items-center gap-1 cursor-pointer font-bold"

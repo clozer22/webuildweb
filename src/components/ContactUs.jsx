@@ -93,10 +93,6 @@ export default function ContactUs() {
         
         {/* Minimal Header */}
         <div className="text-center space-y-3 mb-12">
-          <div className="text-xs font-mono text-[#000000] font-bold uppercase tracking-widest flex items-center justify-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-[#B7E200]" />
-            <span>+ GET IN TOUCH</span>
-          </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#000000] tracking-tight">
             Start A Conversation
           </h2>
